@@ -1,8 +1,14 @@
 import express from "express";
+import dotenv from "dotenv";
+import connectToDB from "./config/db.js";
+
+
+dotenv.config();
+connectToDB();
 
 const app = express();
 
-const port = 5000;
+const port = process.env.PORT;
 
 app.listen(port, () => {
     console.log(`User service running on port ${port}`);
